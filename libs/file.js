@@ -1,6 +1,5 @@
 const fs = require('fs-extra')
 const path = require('path')
-
 /**
  * 是否是文件目录
  * @param {string} dir

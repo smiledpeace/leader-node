@@ -3,4 +3,6 @@ const log4Config = require('../config/log4js.js')
 log4js.configure(log4Config)
 
 
-module.exports = log4js.getLogger();
+module.exports = function (type) {
+  return log4js.getLogger(type)
+}
