@@ -1,7 +1,5 @@
 .DS_Store
 node_modules
-/dist
-/public/20210624091929.jpg
 
 
 # local env files
