@@ -30,10 +30,12 @@ module.exports = {
   batchFileLimit: 10,
   // 超时时间，毫秒
   timeout: 3000,
+  //  触发分块上传的阈值，超过5MB使用分块上传，非必须
+  sliceSize: 1024 * 1024 * 8,
   // 日志目录
   logDir: './logs/',
   // 切片大小 kb
-  chunkSize: 2000,
+  chunkSize: 1024 * 1024 * 8,
   // 检测新文件扫描频率，秒
   scanInterval: 60,
   // 文件完整性校验算法，如腾讯云有特别指明以腾讯云为准

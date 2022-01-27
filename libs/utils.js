@@ -1,5 +1,5 @@
 const logger = require('../libs/log')('async-pool')
-
+const crc64 = require('crc64-ecma182.js')
 async function asyncPool (poolLimit, array, iteratorFn) {
   const ret = [] // 存储所有的异步任务
   const executing = [] // 存储正在执行的异步任务
@@ -25,6 +25,19 @@ async function asyncPool (poolLimit, array, iteratorFn) {
   return Promise.all(ret)
 }
 
+function integrityChecking (filePath) {
+  return new Promise((resolve, reject) => {
+    crc64.crc64File(filePath, function (err, ret) {
+      if (err) {
+        return reject(err)
+      } else {
+        resolve(ret)
+      }
+    })
+  })
+}
+
 module.exports = {
-  asyncPool
+  asyncPool,
+  integrityChecking
 }

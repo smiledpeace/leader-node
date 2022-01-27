@@ -549,6 +549,11 @@ cos-nodejs-sdk-v5@^2.11.6:
     request "^2.88.2"
     xml2js "^0.4.19"
 
+crc64-ecma182.js@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/crc64-ecma182.js/-/crc64-ecma182.js-1.0.0.tgz#0bf73bf2585b59c687f85773e7991df72d759f7a"
+  integrity sha1-C/c78lhbWcaH+Fdz55kd9y11n3o=
+
 cross-spawn@^6.0.5:
   version "6.0.5"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-6.0.5.tgz#4a5ec7c64dfae22c3a14124dbacdee846d80cbc4"

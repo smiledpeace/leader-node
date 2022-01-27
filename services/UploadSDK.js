@@ -21,6 +21,19 @@ const { getFile, uploadFile, moveFile } = require('../libs/file')
 //   })
 // }
 
+function getUploadConfig (config) {
+  return Object.assign({}, config.tencentCos, {
+    // 同时可同步文件数
+    batchFileLimit: config.batchFileLimit,
+    // 超时时间，毫秒
+    timeout: config.timeout,
+    // 切片大小 kb
+    chunkSize: config.chunkSize,
+    // 文件完整性校验算法，如腾讯云有特别指明以腾讯云为准
+    checkAlgorithm: config.checkAlgorithm
+  })
+}
+
 module.exports = function run () {
   const promise = []
   config.dirs.forEach(item => {
@@ -29,11 +42,8 @@ module.exports = function run () {
   })
   promise.forEach(() => {})
   // asyncPool(2, promise, (file) => {
-  //   // console.log(file)
-  //   return uploadFile(file, config.tencentCos)
+  //   return uploadFile(file, getUploadConfig(config))
   // }).then(res => {
   //   console.log(res)
   // })
-  const filePath = promise.length ? promise[0].filePath : ''
-  moveFile(filePath, path.join(__dirname, '../data/online', path.basename(filePath)))
 }
